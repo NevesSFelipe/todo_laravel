@@ -30,15 +30,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <form>
-                            <th scope="row"><h6>Estudar Laravel</h6></th>
-                            <td><input type="checkbox" value="true" /></td>
-                            <td>
-                                <a href="#" class="text-danger"><i class="fa-sharp fa-solid fa-trash"></i></a>
-                            </td>
-                        </form>
-                    </tr>
+                    @foreach($tasks as $task)
+                        <tr>
+                            <form>
+                                <th scope="row"><h6>{{ $task->description }}</h6></th>
+                                <td>
+                                    <input id="situation_{{ $task->id }}" type="checkbox" 
+                                        {{  ($task->situation == 1 ? ' checked' : '') }}
+                                    />
+                                </td>
+                                <td>
+                                    <a href="#" class="text-danger"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                                </td>
+                            </form>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

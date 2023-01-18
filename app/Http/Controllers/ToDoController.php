@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class ToDoController extends Controller
 {
     public function index()
     {
-        return view('todo.index');
+        $tasks = Task::all();
+        return view('todo.index', compact('tasks'));
     }
 }
