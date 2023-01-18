@@ -44,7 +44,7 @@
                                 />
                             </td>
                             <td>
-                                <a href="#" class="text-danger"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                                <a href="/destroy/{{ $task->id }}" class="text-danger"><i class="fa-sharp fa-solid fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach

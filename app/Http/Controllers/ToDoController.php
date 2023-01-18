@@ -31,5 +31,11 @@ class ToDoController extends Controller
         return redirect('/');
     }
 
+    public function destroy(Request $request)
+    {
+        Task::destroy($request->id);
+        return redirect('/');
+    }
+
 
 }

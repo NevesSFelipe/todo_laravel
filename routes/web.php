@@ -17,3 +17,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [ToDoController::class, 'index']);
 Route::post('/create', [ToDoController::class, 'store']);
 Route::get('/update/{id}/{situation}', [ToDoController::class, 'update']);
+Route::get('/destroy/{id}', [ToDoController::class, 'destroy']);
