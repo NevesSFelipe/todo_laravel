@@ -21,4 +21,15 @@ class ToDoController extends Controller
 
         return redirect('/');
     }
+
+    public function update(Request $request)
+    {
+        $tasks = Task::find($request->id);
+        $tasks->situation = $request->situation;
+        $tasks->save();
+
+        return redirect('/');
+    }
+
+
 }

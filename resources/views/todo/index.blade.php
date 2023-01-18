@@ -32,17 +32,20 @@
                 <tbody>
                     @foreach($tasks as $task)
                         <tr>
-                            <form>
-                                <th scope="row"><h6>{{ $task->description }}</h6></th>
-                                <td>
-                                    <input id="situation_{{ $task->id }}" type="checkbox" 
-                                        {{  ($task->situation == 1 ? ' checked' : '') }}
-                                    />
-                                </td>
-                                <td>
-                                    <a href="#" class="text-danger"><i class="fa-sharp fa-solid fa-trash"></i></a>
-                                </td>
-                            </form>
+                            <th scope="row"><h6>{{ $task->description }}</h6></th>
+                            <td>
+                                <input 
+                                    name="situation" 
+                                    class="situation" 
+                                    type="checkbox" 
+                                    value={{ $task->situation }}
+                                    id={{ $task->id }}
+                                    {{  ($task->situation == 1 ? ' checked' : '') }}
+                                />
+                            </td>
+                            <td>
+                                <a href="#" class="text-danger"><i class="fa-sharp fa-solid fa-trash"></i></a>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
@@ -79,5 +82,16 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
         <script src="https://kit.fontawesome.com/910e6444fa.js" crossorigin="anonymous"></script>
+
+        <script>
+
+            $('.situation').click(function(){
+                var id_task = $(this).attr('id');
+                var situation = $(this).val() == 0 ? 1 : 0; 
+                window.location.href = "/update/" + id_task + "/" + situation;
+            })
+
+        </script>
+
     </body>
 </html>
