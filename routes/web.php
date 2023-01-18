@@ -15,3 +15,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [ToDoController::class, 'index']);
+Route::post('/create', [ToDoController::class, 'store']);

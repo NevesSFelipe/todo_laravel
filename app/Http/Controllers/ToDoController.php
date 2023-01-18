@@ -12,4 +12,13 @@ class ToDoController extends Controller
         $tasks = Task::all();
         return view('todo.index', compact('tasks'));
     }
+
+    public function store(Request $request)
+    {
+        $tasks = Task::create([
+            'description' => $request->description
+        ]);
+
+        return redirect('/');
+    }
 }
